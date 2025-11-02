@@ -80,7 +80,7 @@ export function ConversionForm({ onConvert, isLoading = false }: ConversionFormP
           onClick={handleTextConvert}
           disabled={!tamilText.trim() || isLoading}
           size="lg"
-          className="flex-1"
+          className="flex-1 hover:scale-[1.02] active:scale-[0.98] transition-transform"
         >
           {isLoading ? (
             <>
@@ -109,7 +109,7 @@ export function ConversionForm({ onConvert, isLoading = false }: ConversionFormP
           ref={fileInputRef}
           id="file-input"
           type="file"
-          accept=".txt"
+          accept=".txt,.pdf,image/*"
           onChange={handleFileSelect}
           disabled={isLoading}
           className="hidden"
@@ -117,7 +117,7 @@ export function ConversionForm({ onConvert, isLoading = false }: ConversionFormP
         <button
           onClick={() => fileInputRef.current?.click()}
           disabled={isLoading}
-          className="w-full p-6 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-lg hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full p-6 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]"
         >
           <div className="flex flex-col items-center gap-2">
             <Upload className="w-6 h-6 text-slate-600 dark:text-slate-400" />
@@ -126,7 +126,7 @@ export function ConversionForm({ onConvert, isLoading = false }: ConversionFormP
                 {selectedFile ? selectedFile.name : 'Click to upload file'}
               </p>
               <p className="text-sm text-slate-500 dark:text-slate-400">
-                TXT up to 10MB
+                TXT, PDF, or Image up to 10MB
               </p>
             </div>
           </div>
